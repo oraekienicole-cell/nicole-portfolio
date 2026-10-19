@@ -28,3 +28,7 @@ Thumbs.db
 # Private content checklist and archived drafts. Not for a public repo.
 # Delete this line if the GitHub repo is private and you want them backed up too.
 source-material/
+
+# Cloudflare Wrangler local state and secrets
+.wrangler/
+.dev.vars*

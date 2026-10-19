@@ -1,0 +1,17 @@
+/**
+ * Cloudflare Workers Static Assets: serves the Vite build in ./dist.
+ * Build with `npm run build`, deploy with `npx wrangler deploy`.
+ * Docs: https://developers.cloudflare.com/workers/static-assets/
+ */
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "nicole-portfolio",
+  "compatibility_date": "2026-10-19",
+  "assets": {
+    "directory": "./dist",
+    // React single-page app: any path that isn't a real file (e.g. /work/stakeet)
+    // is answered with index.html, and the app's router takes it from there.
+    // Real files, like /nicole-oraekie-cv.pdf, are always served as-is.
+    "not_found_handling": "single-page-application"
+  }
+}
