@@ -40,6 +40,6 @@ Put the PDF at `public/nicole-oraekie-cv.pdf`. The navigation and mobile menu ("
 
 Case studies use real paths (`/work/stakeet`), so the host must serve `index.html` for unknown routes.
 
-- **Cloudflare (Workers Static Assets):** configured in `wrangler.jsonc`. Build command `npm run build`, deploy command `npx wrangler deploy`. `"not_found_handling": "single-page-application"` provides the fallback. Check locally without deploying: `npx wrangler deploy --dry-run`. (Cloudflare ignores the Netlify-style rule in `public/_redirects` and logs a harmless warning about it.)
-- **Netlify:** `public/_redirects` handles the fallback.
+- **Cloudflare (Workers Static Assets):** configured in `wrangler.jsonc`. Build command `npm run build`, deploy command `npx wrangler deploy`. `"not_found_handling": "single-page-application"` provides the fallback. Check locally without deploying: `npx wrangler deploy --dry-run`. Don't add a `public/_redirects` catch-all (`/* /index.html 200`): Cloudflare rejects it as an infinite loop and the deploy fails.
+- **Netlify:** would need a `public/_redirects` file containing `/*  /index.html  200` (removed because it breaks Cloudflare).
 - **Vercel:** does it by default for Vite.
