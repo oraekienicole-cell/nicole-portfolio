@@ -1,0 +1,30 @@
+# Dependencies
+node_modules
+
+# Build output (hosts rebuild it from source)
+dist
+*.tsbuildinfo
+
+# Environment files and local overrides
+.env
+.env.*
+!.env.example
+*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea
+.vscode/*
+!.vscode/extensions.json
+
+# Local Claude Code tooling (contains machine-specific paths)
+.claude/
+
+# Private content checklist and archived drafts. Not for a public repo.
+# Delete this line if the GitHub repo is private and you want them backed up too.
+source-material/
