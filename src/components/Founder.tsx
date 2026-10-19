@@ -53,7 +53,7 @@ export function Founder() {
       id="founder"
       data-theme="dark"
       aria-labelledby="founder-title"
-      className="relative overflow-hidden bg-ink text-white px-5 sm:px-8 md:px-10 pt-24 md:pt-36 pb-16 md:pb-24"
+      className="relative overflow-hidden bg-ink text-white px-5 sm:px-8 md:px-10 pt-20 md:pt-36 pb-14 md:pb-24"
     >
       <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-8">
         <div className="md:col-span-3 md:pt-3">
@@ -66,7 +66,7 @@ export function Founder() {
             id="founder-title"
             text="Before product marketing was my job title, it was something I had to figure out because the product was mine."
             accent={['mine.']}
-            className="font-display text-[length:clamp(32px,4.6vw,76px)] leading-[1.04] tracking-[-0.03em] max-w-[20ch] text-balance"
+            className="font-display text-[length:clamp(28px,4.6vw,76px)] leading-[1.06] tracking-[-0.03em] max-w-[20ch] text-balance"
           />
           <Reveal delay={200}>
             <p className="mt-10 max-w-[48ch] text-[18px] sm:text-[20px] leading-[1.5] text-white/70 text-pretty">
@@ -79,7 +79,7 @@ export function Founder() {
       </div>
 
       {/* The journey: a horizontal line of decisions on desktop, a vertical one on mobile */}
-      <ol className="relative mt-20 md:mt-28 grid grid-cols-1 gap-0 lg:grid-cols-7 lg:gap-6">
+      <ol className="relative mt-14 md:mt-28 grid grid-cols-1 gap-0 lg:grid-cols-7 lg:gap-6">
         <span aria-hidden="true" className="absolute left-[5px] top-2 bottom-2 w-px bg-white/15 lg:left-0 lg:right-0 lg:top-[5px] lg:bottom-auto lg:h-px lg:w-auto" />
         {journey.map((j, i) => {
           const hasProof = j.proof.length > 0;
@@ -110,7 +110,7 @@ export function Founder() {
         })}
       </ol>
 
-      <div className="mt-16 md:mt-24 flex flex-col gap-8 md:flex-row md:items-end md:justify-between border-t border-white/15 pt-10">
+      <div className="mt-12 md:mt-24 flex flex-col gap-8 md:flex-row md:items-end md:justify-between border-t border-white/15 pt-10">
         <p className="max-w-[36ch] text-[22px] sm:text-[26px] leading-[1.3] tracking-[-0.01em] text-pretty">
           Running Iglare is why I don’t separate the story from the numbers. When the brand promise is yours, so is the
           churn.

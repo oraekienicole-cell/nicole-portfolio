@@ -23,7 +23,7 @@ export function Contact() {
   const href = mailto();
 
   return (
-    <section id="contact" aria-labelledby="contact-title" className="border-t border-ink px-5 sm:px-8 md:px-10 pt-24 md:pt-40 pb-16">
+    <section id="contact" aria-labelledby="contact-title" className="border-t border-ink px-5 sm:px-8 md:px-10 pt-20 md:pt-40 pb-16">
       <SectionLabel index="09">Say Hello</SectionLabel>
 
       <SplitReveal
@@ -65,11 +65,11 @@ export function Contact() {
 
       <ul
         aria-label="Elsewhere"
-        className="mt-16 md:mt-24 flex flex-wrap gap-x-10 gap-y-4 border-t border-line pt-8 text-[17px]"
+        className="mt-12 md:mt-24 flex flex-wrap gap-x-10 gap-y-4 border-t border-line pt-8 text-[17px]"
       >
         {channels().map((c) => (
           <li key={c.label}>
-            <ExternalLink href={c.href} title={c.title}>
+            <ExternalLink href={c.href} title={c.title} arrow={false} className="link inline-flex min-h-11 items-center">
               {c.label}
             </ExternalLink>
           </li>

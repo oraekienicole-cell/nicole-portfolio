@@ -30,7 +30,7 @@ export function Hero() {
     <section
       id="top"
       aria-labelledby="hero-title"
-      className="hero relative z-[1] flex flex-col justify-end pb-12 md:justify-center md:pb-0 px-5 sm:px-8 md:px-10 overflow-hidden"
+      className="hero relative z-[1] flex flex-col justify-end pt-28 pb-10 md:justify-center md:pt-0 md:pb-0 px-5 sm:px-8 md:px-10 overflow-hidden"
     >
       <h1 id="hero-title" className="sr-only">
         Nicole Oraekie, product marketer for fintech, AI and technical products

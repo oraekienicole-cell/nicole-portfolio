@@ -30,7 +30,7 @@ const stageSize = (value: string) => {
 export function Metrics() {
   return (
     <section id="evidence" aria-labelledby="evidence-title" className="relative">
-      <div className="px-5 sm:px-8 md:px-10 pt-24 md:pt-40 grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-8">
+      <div className="px-5 sm:px-8 md:px-10 pt-20 md:pt-40 grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-8">
         <div className="md:col-span-3 md:pt-3">
           <SectionLabel index="02">Evidence</SectionLabel>
         </div>

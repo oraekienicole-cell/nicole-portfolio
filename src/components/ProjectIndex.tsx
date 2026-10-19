@@ -14,8 +14,8 @@ export function ProjectIndex() {
   const [active, setActive] = useState<Project | null>(null);
 
   return (
-    <section id="work" aria-labelledby="work-title" className="px-5 sm:px-8 md:px-10 pt-28 md:pt-44 pb-24 md:pb-40">
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-8 mb-16 md:mb-28">
+    <section id="work" aria-labelledby="work-title" className="px-5 sm:px-8 md:px-10 pt-20 md:pt-44 pb-16 md:pb-40">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-8 mb-12 md:mb-28">
         <div className="md:col-span-3 md:pt-3">
           <SectionLabel index="01">The Work</SectionLabel>
         </div>

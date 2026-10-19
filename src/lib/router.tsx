@@ -41,7 +41,9 @@ export function navigate(to: string) {
 
   if (url.pathname === current && url.hash) {
     window.history.pushState(null, '', url.pathname + url.hash);
-    scrollToHash(url.hash);
+    // Deferred a tick: lets anything the tap closed (e.g. the mobile menu,
+    // which locks page scrolling) unlock first, so the jump isn't swallowed.
+    window.setTimeout(() => scrollToHash(url.hash), 0);
     return;
   }
 

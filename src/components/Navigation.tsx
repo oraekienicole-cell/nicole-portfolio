@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { Link, usePathname } from '../lib/router';
 import { useScrollFrame } from '../hooks/useScrollFrame';
 import { cv, socials } from '../data/socials';
@@ -31,14 +31,20 @@ export function Navigation() {
 
   // Close on route change, lock scroll while open, close on Escape.
   useEffect(() => setOpen(false), [path]);
-  useEffect(() => {
+  // Layout effect so the lock is released in the same commit the menu closes,
+  // before any section jump triggered by the tap runs.
+  useLayoutEffect(() => {
     if (!open) return;
-    const prev = document.body.style.overflow;
+    // Lock the page behind the menu (html too, for iOS Safari).
+    const html = document.documentElement;
+    const prev = { body: document.body.style.overflow, html: html.style.overflow };
     document.body.style.overflow = 'hidden';
+    html.style.overflow = 'hidden';
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setOpen(false);
     window.addEventListener('keydown', onKey);
     return () => {
-      document.body.style.overflow = prev;
+      document.body.style.overflow = prev.body;
+      html.style.overflow = prev.html;
       window.removeEventListener('keydown', onKey);
     };
   }, [open]);
@@ -98,15 +104,9 @@ export function Navigation() {
                 target="_blank"
                 rel="noopener noreferrer"
                 title={cv.title}
-                className="group inline-flex items-start hover:opacity-60 transition-opacity"
+                className="hover:opacity-60 transition-opacity"
               >
                 {cv.nav}
-                <span
-                  aria-hidden="true"
-                  className="ml-0.5 text-[0.6em] leading-none transition-[translate,color] duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-accent"
-                >
-                  ↗
-                </span>
                 <span className="sr-only"> (PDF, opens in a new tab)</span>
               </a>
             </li>
@@ -148,46 +148,59 @@ export function Navigation() {
 
       <div
         id="mobile-menu"
-        className="lg:hidden fixed inset-0 z-[9] bg-white/95 backdrop-blur-sm flex flex-col justify-center items-start px-8 gap-8 transition-opacity duration-300"
+        className="lg:hidden fixed inset-0 z-[9] overflow-y-auto overscroll-contain bg-white/95 backdrop-blur-sm transition-opacity duration-300"
         style={{ opacity: open ? 1 : 0, pointerEvents: open ? 'auto' : 'none' }}
         inert={!open}
         aria-hidden={!open}
       >
-        <ul className="flex flex-col gap-5">
-          {links.map((l, i) => (
-            <li
-              key={l.label}
-              className="transition-[opacity,translate] duration-500 ease-out-expo"
-              style={{
-                opacity: open ? 1 : 0,
-                translate: open ? '0 0' : '0 12px',
-                transitionDelay: open ? `${80 + i * 50}ms` : '0ms',
-              }}
+        {/* Centred when it fits; scrolls (clear of the header) on short phones */}
+        <div className="flex min-h-full flex-col justify-center px-6 sm:px-8 pt-24 pb-12">
+          <ul className="flex flex-col">
+            {links.map((l, i) => (
+              <li
+                key={l.label}
+                className="transition-[opacity,translate] duration-500 ease-out-expo"
+                style={{
+                  opacity: open ? 1 : 0,
+                  translate: open ? '0 0' : '0 12px',
+                  transitionDelay: open ? `${80 + i * 50}ms` : '0ms',
+                }}
+              >
+                <Link
+                  to={l.to}
+                  onClick={() => setOpen(false)}
+                  className="flex min-h-14 items-center py-1.5 font-display text-[length:clamp(28px,8.4vw,40px)] leading-[1.08] tracking-[-0.02em] text-black text-balance"
+                >
+                  {l.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <div className="mt-8 flex flex-col gap-1 border-t border-black/15 pt-6">
+            <SayHello
+              onClick={() => setOpen(false)}
+              className="inline-flex min-h-12 w-fit items-center font-display text-[length:clamp(26px,7.4vw,34px)] leading-none text-black underline underline-offset-4 decoration-1 decoration-accent"
+              emailSuffix={<span aria-hidden="true">&nbsp;↗</span>}
             >
-              <Link to={l.to} className="text-[clamp(28px,8vw,36px)] font-display leading-[1.05] text-black" onClick={() => setOpen(false)}>
-                {l.label}
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <SayHello
-          onClick={() => setOpen(false)}
-          className="text-[32px] font-display leading-none text-black underline underline-offset-4 decoration-1 decoration-accent"
-          emailSuffix={<span aria-hidden="true"> ↗</span>}
-        >
-          Say Hello
-        </SayHello>
-        <a
-          href={socials.resume}
-          target="_blank"
-          rel="noopener noreferrer"
-          title={cv.title}
-          onClick={() => setOpen(false)}
-          className="mt-2 inline-flex min-h-11 items-center text-[19px] text-black"
-        >
-          {cv.nav} <span aria-hidden="true">&nbsp;↗</span>
-          <span className="sr-only"> (PDF, opens in a new tab)</span>
-        </a>
+              Say Hello
+            </SayHello>
+            <a
+              href={socials.resume}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={cv.title}
+              onClick={() => setOpen(false)}
+              className="inline-flex min-h-12 w-fit items-center text-[19px] text-black underline underline-offset-4 decoration-1 decoration-black/30"
+            >
+              {cv.nav}
+              <span aria-hidden="true" className="ml-2 text-[14px] text-black/55 no-underline">
+                PDF
+              </span>
+              <span className="sr-only"> (PDF, opens in a new tab)</span>
+            </a>
+          </div>
+        </div>
       </div>
     </>
   );

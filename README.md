@@ -25,7 +25,7 @@ All copy lives in `src/data/`. Components only render it.
 | `chapters.ts` | The six case-study questions |
 | `metrics.ts` | The evidence numbers and their footnotes |
 | `articles.ts` | Writing: verified articles (title, publication, category, description, URL). `featured` leads; entries with `[ADD ...]` fields stay hidden. |
-| `speaking.ts` | Events (add `talk`, `year`, `href` when confirmed) |
+| `speaking.ts` | Speaking appearances: event, format, date, location, photo (`public/images/speaking/`), link, description. Missing fields and missing photos simply don't render. |
 | `site.ts` | The "Elsewhere" list in About |
 
 Archived sections (the old Lab/Experiments and notes list) live in `source-material/drafts/`, outside the build.

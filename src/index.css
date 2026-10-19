@@ -123,13 +123,25 @@ body {
 
 /* ---------------------------------------------------------------
    Hero ↔ canvas transition
+   Phones: at least one screen tall, but free to grow so the copy never
+   slides under the nav on short devices. Tablet/desktop: exactly one screen.
 ---------------------------------------------------------------- */
 .hero {
-  height: 100vh;
+  min-height: 100vh;
 }
 @supports (height: 100svh) {
   .hero {
-    height: 100svh;
+    min-height: 100svh;
+  }
+}
+@media (min-width: 768px) {
+  .hero {
+    height: 100vh;
+  }
+  @supports (height: 100svh) {
+    .hero {
+      height: 100svh;
+    }
   }
 }
 

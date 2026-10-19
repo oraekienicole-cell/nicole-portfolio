@@ -35,7 +35,7 @@ export function Testimonials() {
     <section
       id="kind-words"
       aria-labelledby="kind-words-title"
-      className="border-t border-line px-5 sm:px-8 md:px-10 pt-24 md:pt-40 pb-24 md:pb-36"
+      className="border-t border-line px-5 sm:px-8 md:px-10 pt-20 md:pt-40 pb-16 md:pb-36"
     >
       <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-8">
         <div className="md:col-span-3 md:pt-3">
@@ -91,7 +91,7 @@ export function Testimonials() {
         <OneAtATime />
       </div>
 
-      <div className="mt-20 md:mt-28 grid grid-cols-1 md:grid-cols-12 md:gap-8">
+      <div className="mt-14 md:mt-28 grid grid-cols-1 md:grid-cols-12 md:gap-8">
         <p className="md:col-span-9 md:col-start-4 text-[13px] leading-[1.5] text-mute">
           Some colleagues know me as Ifeoma.
         </p>

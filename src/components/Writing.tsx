@@ -15,7 +15,7 @@ export function Writing() {
   if (items.length === 0) return null;
 
   return (
-    <section id="writing" aria-labelledby="writing-title" className="border-t border-line px-5 sm:px-8 md:px-10 pt-24 md:pt-40 pb-24 md:pb-36">
+    <section id="writing" aria-labelledby="writing-title" className="border-t border-line px-5 sm:px-8 md:px-10 pt-20 md:pt-40 pb-16 md:pb-36">
       <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-8">
         <div className="md:col-span-3 md:pt-3">
           <SectionLabel index="08">Writing</SectionLabel>
@@ -35,7 +35,7 @@ export function Writing() {
         </div>
       </div>
 
-      <ol aria-labelledby="writing-title" className="mt-16 md:mt-24 border-t border-ink">
+      <ol aria-labelledby="writing-title" className="mt-12 md:mt-24 border-t border-ink">
         {items.map((a, i) => (
           <Reveal as="li" key={a.url} delay={i * 60} className="border-b border-line">
             <ArticleRow article={a} />
@@ -45,7 +45,9 @@ export function Writing() {
 
       {isSet(socials.medium) && (
         <p className="mt-10 flex justify-end text-[16px]">
-          <ExternalLink href={socials.medium}>More writing on Medium</ExternalLink>
+          <ExternalLink href={socials.medium} className="link inline-flex min-h-11 items-center">
+            More writing on Medium
+          </ExternalLink>
         </p>
       )}
     </section>

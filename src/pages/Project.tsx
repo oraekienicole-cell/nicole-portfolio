@@ -51,13 +51,13 @@ export function Project({ slug }: { slug: string }) {
             <Meta label="Company" value={project.company} />
             {project.role && <Meta label="Role" value={project.role} />}
             {project.timeframe && <Meta label="Timeframe" value={project.timeframe} />}
-            <Meta label="Work" value={project.descriptor} />
+            <Meta label="Work" value={project.descriptor} className="col-span-2 md:col-span-1" />
           </dl>
         </Reveal>
       </header>
 
       {project.metric && (
-        <Reveal className="mt-20 md:mt-28 border-y border-line py-10 md:py-14 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+        <Reveal className="mt-14 md:mt-28 border-y border-line py-10 md:py-14 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <p className="font-display text-[length:clamp(52px,9vw,144px)] leading-[0.9] tracking-[-0.04em] tabular">
             <Arrowed text={project.metric.value} />
           </p>
@@ -65,7 +65,7 @@ export function Project({ slug }: { slug: string }) {
         </Reveal>
       )}
 
-      <div className="mt-20 md:mt-28">
+      <div className="mt-14 md:mt-28">
         {chapters
           .filter((c) => (c.key === 'approach' ? project.approach?.length : project[c.key]?.length))
           .map((c, n) => (
@@ -100,9 +100,9 @@ export function Project({ slug }: { slug: string }) {
   );
 }
 
-function Meta({ label, value }: { label: string; value: string }) {
+function Meta({ label, value, className = '' }: { label: string; value: string; className?: string }) {
   return (
-    <div className="border-b border-line py-5 pr-4">
+    <div className={`border-b border-line py-5 pr-4 ${className}`}>
       <dt className="eyebrow text-mute">{label}</dt>
       <dd className="mt-2 text-[16px] leading-snug">
         <Rich text={value} />

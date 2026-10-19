@@ -8,7 +8,7 @@ import { ExternalLink, SocialLink } from './ui/ExternalLink';
 
 export function About() {
   return (
-    <section id="about" aria-labelledby="about-title" className="border-t border-line px-5 sm:px-8 md:px-10 pt-24 md:pt-40 pb-24 md:pb-36">
+    <section id="about" aria-labelledby="about-title" className="border-t border-line px-5 sm:px-8 md:px-10 pt-20 md:pt-40 pb-16 md:pb-36">
       <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-8">
         <div className="md:col-span-3 md:pt-3">
           <SectionLabel index="07">The Person</SectionLabel>
@@ -38,10 +38,10 @@ export function About() {
                 growth. The job title changes less often than the problem does.
               </p>
               <p className="flex flex-wrap items-baseline gap-x-8 gap-y-3 pt-4 text-[17px]">
-                <ExternalLink href={socials.resume} title={cv.title}>
+                <ExternalLink href={socials.resume} title={cv.title} className="link inline-flex min-h-11 items-center">
                   {cv.about}
                 </ExternalLink>
-                <SocialLink href={socials.linkedin} className="link">
+                <SocialLink href={socials.linkedin} className="link inline-flex min-h-11 items-center">
                   LinkedIn
                 </SocialLink>
               </p>

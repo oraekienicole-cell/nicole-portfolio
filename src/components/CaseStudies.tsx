@@ -33,8 +33,8 @@ export function CaseStudies() {
   const maplerad = getProject('maplerad')!;
 
   return (
-    <section id="cases" aria-labelledby="cases-title" className="px-5 sm:px-8 md:px-10 pt-24 md:pt-40 pb-24 md:pb-40 border-t border-line">
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-8 mb-16 md:mb-28">
+    <section id="cases" aria-labelledby="cases-title" className="px-5 sm:px-8 md:px-10 pt-20 md:pt-40 pb-16 md:pb-40 border-t border-line">
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-8 mb-12 md:mb-28">
         <div className="md:col-span-3 md:pt-3">
           <SectionLabel index="03">Case studies</SectionLabel>
         </div>
@@ -106,7 +106,7 @@ export function CaseStudies() {
       {/* Second case study: a wide editorial row rather than a card */}
       <article
         aria-labelledby="maplerad-feature"
-        className="mt-24 md:mt-40 grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-8 border-t border-ink pt-10 md:pt-14"
+        className="mt-16 md:mt-40 grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-8 border-t border-ink pt-10 md:pt-14"
       >
         <Reveal className="md:col-span-5">
           <p className="eyebrow text-mute">{maplerad.category}</p>
@@ -131,7 +131,7 @@ export function CaseStudies() {
           )}
           <Link
             to={`/work/${maplerad.slug}`}
-            className="link group mt-10 inline-flex w-fit items-center gap-2 text-[16px]"
+            className="link group mt-10 inline-flex min-h-11 w-fit items-center gap-2 text-[16px]"
           >
             Read the Maplerad case study
             <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
