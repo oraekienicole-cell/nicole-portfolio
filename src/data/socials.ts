@@ -11,7 +11,7 @@
  */
 export const socials = {
   // ↓ Nicole's email. Every "Say Hello" on the site becomes mailto:<this address>.
-  email: "[ADD NICOLE'S REAL EMAIL HERE]",
+  email: "oraekienicole@gmail.com",
   linkedin: '[ADD LINKEDIN URL]',
   medium: "https://medium.com/@oraekienicole",
   resume: '/nicole-oraekie-cv.pdf',
