@@ -14,39 +14,39 @@ export type Metric = {
 
 export const metrics: Metric[] = [
   {
-    value: '~90 → ~500',
+    value: '~90 to ~500',
     label: 'Stakeet users',
     where: 'Stakeet',
-    note: 'Approximate user growth over about five months, while I worked on positioning, lifecycle and adoption. Growth has more than one parent, so read this as the period’s result rather than mine alone.',
+    note: 'Approximate users over about five months, while I worked on positioning, onboarding and lifecycle. Growth had more than one cause.',
   },
   {
-    value: '$1K → $8.5K',
+    value: '$1K to $8.5K',
     label: 'Monthly B2B revenue',
     where: 'Maplerad',
-    note: 'Approximate growth in monthly B2B revenue across the period I worked on GTM messaging, onboarding and how the product’s value was communicated. A commercial result with several contributors, my work among them.',
+    note: 'Approximate monthly B2B revenue over the period I worked on GTM messaging, onboarding and product value communication. Revenue had more than one cause.',
   },
   {
     value: '1M+',
     label: 'TikTok impressions',
     where: 'Iglare Optics',
-    note: 'Organic reach generated while building Iglare’s audience and turning social content into a meaningful acquisition channel.',
+    note: 'Organic impressions for Iglare Optics, which turned social content into an acquisition channel.',
   },
   {
     value: '35%',
     label: 'Retention improvement',
     where: 'Iglare Optics',
-    note: 'An approximate improvement in customer retention as Iglare became more deliberate about the experience after acquisition, not just the acquisition itself.',
+    note: 'Approximate improvement in customer retention after focusing on the post-purchase experience.',
   },
   {
     value: '25%',
     label: 'Monthly revenue growth',
     where: 'Iglare Optics',
-    note: 'Approximate month-on-month revenue growth during the growth period, with monthly revenue reaching roughly ₦600k–₦1m.',
+    note: 'Approximate month-on-month revenue growth, reaching roughly ₦600k–₦1m a month.',
   },
   {
     value: '$5K',
     label: 'Tony Elumelu Foundation grant',
     where: 'Iglare Optics',
-    note: 'Founder grant awarded to support the growth of Iglare Optics.',
+    note: 'Founder grant awarded to Iglare Optics.',
   },
 ];

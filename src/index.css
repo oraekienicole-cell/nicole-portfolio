@@ -20,7 +20,7 @@
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --nav-h: 72px;
 
-  /* 0 → 1 as the hero scrolls away (set from Home) */
+  /* 0 to 1 as the hero scrolls away (set from Home) */
   --hero-p: 0;
 }
 

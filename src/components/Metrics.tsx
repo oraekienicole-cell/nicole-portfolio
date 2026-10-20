@@ -4,21 +4,12 @@ import { useScrollFrame } from '../hooks/useScrollFrame';
 import { SectionLabel } from './ui/SectionLabel';
 import { SplitReveal } from './ui/SplitReveal';
 import { Reveal } from './ui/Reveal';
+import { Change } from './ui/Change';
 
 const pad = (n: number) => String(n).padStart(2, '0');
 
-/** Renders "90 → 500" with the arrow in the accent colour. */
-function Value({ value }: { value: string }) {
-  const [from, to] = value.split('→');
-  if (to === undefined) return <>{value}</>;
-  return (
-    <>
-      {from.trim()}
-      <span className="text-accent mx-[0.12em]">→</span>
-      {to.trim()}
-    </>
-  );
-}
+/** Before/after figures render with a small "to" (see ui/Change). */
+const Value = ({ value }: { value: string }) => <Change text={value} />;
 
 /** Size the dominant number by its length so short and long values both fill the stage. */
 const stageSize = (value: string) => {
@@ -32,7 +23,7 @@ export function Metrics() {
     <section id="evidence" aria-labelledby="evidence-title" className="relative">
       <div className="px-5 sm:px-8 md:px-10 pt-20 md:pt-40 grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-8">
         <div className="md:col-span-3 md:pt-3">
-          <SectionLabel index="02">Evidence</SectionLabel>
+          <SectionLabel index="02">Results</SectionLabel>
         </div>
         <div className="md:col-span-9">
           <SplitReveal
@@ -42,8 +33,7 @@ export function Metrics() {
           />
           <Reveal delay={150}>
             <p className="mt-8 max-w-[46ch] text-[17px] sm:text-[19px] leading-[1.5] text-mute text-pretty">
-              Six numbers, each with the context that keeps it honest. A figure without context is just another
-              adjective wearing a suit.
+              Approximate figures, each with its context.
             </p>
           </Reveal>
         </div>

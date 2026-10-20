@@ -5,7 +5,7 @@ type Props = {
   href: string;
   children: ReactNode;
   className?: string;
-  /** Show the ↗ marker. On by default. */
+  /** Deprecated: external links no longer show an arrow. */
   arrow?: boolean;
   /** Hover text, e.g. to say plainly what a playful label means. */
   title?: string;
@@ -13,10 +13,9 @@ type Props = {
 
 /**
  * One consistent treatment for links that leave the site:
- * new tab, rel="noopener noreferrer", a ↗ that nudges on hover,
- * and a screen-reader note. mailto: links open in place.
+ * new tab, rel="noopener noreferrer", and a screen-reader note. mailto: links open in place.
  */
-export function ExternalLink({ href, children, className = 'link', arrow = true, title }: Props) {
+export function ExternalLink({ href, children, className = 'link', title }: Props) {
   const isMail = href.startsWith('mailto:');
   return (
     <a
@@ -26,14 +25,6 @@ export function ExternalLink({ href, children, className = 'link', arrow = true,
       {...(isMail ? {} : { target: '_blank', rel: 'noopener noreferrer' })}
     >
       {children}
-      {arrow && (
-        <>
-          {' '}
-          <span aria-hidden="true" className="arrow">
-            ↗
-          </span>
-        </>
-      )}
       {!isMail && <span className="sr-only"> (opens in a new tab)</span>}
     </a>
   );

@@ -5,9 +5,8 @@
  * - Quotes are the recommenders' own words. Trim if you must; never reword.
  * - A testimonial is shown once its `quote` is real. The attribution reads:
  *     Name (linked to LinkedIn when `linkedin` is set)
- *     Role · Company (only once they're real)
- *     Relationship
- *     Recommendation via LinkedIn (small)
+ *     Role, Company (only once they're real)
+ *   `relationship` is kept for reference but not shown.
  *   "[ADD ...]" placeholders never reach the page.
  * - `linkedin`: the recommender's profile URL. When set, their name links to it.
  * - `featured`: the lead quote. Its first sentence is set largest.
@@ -38,9 +37,9 @@ export const testimonials: Testimonial[] = [
       'What truly sets Ifeoma apart is her passion for execution. She doesn’t just develop impactful strategies; she ensures they are implemented with precision to achieve outstanding outcomes.',
     // Optional excerpt from the same recommendation (not shown; move into `excerpt` to use it):
     // 'She is not only an expert in the marketing space but also a dynamic thinker who stays ahead of the curve by leveraging the latest trends and strategies to bring results.'
-    name: 'Akpan, Victor D.',
-    role: '[ADD ROLE FROM LINKEDIN]',
-    company: '[ADD COMPANY]',
+    name: 'Akpan Victor',
+    role: 'Founder',
+    company: 'IQOR',
     relationship: 'Mentor',
     linkedin: '[ADD LINKEDIN URL]',
     featured: true,
@@ -50,8 +49,8 @@ export const testimonials: Testimonial[] = [
       'Ifeoma excels at creating awareness for a brand and identifying opportunities. She is also a collaborative team member who thrives in working well with other departments, including product and marketing.',
     excerpt: 'She will be an asset to any organization fortunate enough to work with her.',
     name: 'Tolulope Abiodun',
-    role: '[ADD ROLE FROM LINKEDIN]',
-    company: '[ADD COMPANY]',
+    role: 'Business Development Manager',
+    company: 'Maplerad',
     relationship: 'Worked directly with Ifeoma',
     linkedin: '[ADD LINKEDIN URL]',
   },
@@ -59,9 +58,9 @@ export const testimonials: Testimonial[] = [
     quote: 'Her research and creative problem-solving skills were invaluable to our team.',
     excerpt:
       'She played a pivotal role in establishing the marketing department, creating content and marketing strategies that increased our market presence.',
-    name: 'Emmanuel Ezewere',
-    role: '[ADD ROLE FROM LINKEDIN]',
-    company: '[ADD COMPANY]',
+    name: 'Emmanuel Ezenwere',
+    role: 'CEO',
+    company: 'Arone Energy',
     relationship: 'Former teammate',
     linkedin: '[ADD LINKEDIN URL]',
   },

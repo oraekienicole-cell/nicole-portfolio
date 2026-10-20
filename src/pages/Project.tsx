@@ -22,9 +22,6 @@ export function Project({ slug }: { slug: string }) {
   return (
     <article className="px-5 sm:px-8 md:px-10 pt-28 md:pt-36">
       <Link to="/#work" className="group inline-flex min-h-11 items-center gap-2 text-[15px] text-mute hover:text-ink transition-colors">
-        <span aria-hidden="true" className="transition-transform duration-300 group-hover:-translate-x-1">
-          ←
-        </span>
         All work
       </Link>
 
@@ -69,7 +66,7 @@ export function Project({ slug }: { slug: string }) {
         {chapters
           .filter((c) => (c.key === 'approach' ? project.approach?.length : project[c.key]?.length))
           .map((c, n) => (
-            <Chapter key={c.key} index={n + 1} label={c.label} question={c.question} project={project} chapter={c.key} />
+            <Chapter key={c.key} index={n + 1} label={c.label} project={project} chapter={c.key} />
           ))}
       </div>
 
@@ -89,9 +86,6 @@ export function Project({ slug }: { slug: string }) {
           <span className="eyebrow text-mute">Next case study</span>
           <span className="mt-4 flex items-baseline gap-4 font-display text-[length:clamp(48px,9vw,140px)] leading-[0.9] tracking-[-0.035em]">
             <span className="transition-[translate] duration-500 ease-out-expo group-hover:translate-x-3">{next.title}</span>
-            <span aria-hidden="true" className="text-accent transition-[translate] duration-500 ease-out-expo group-hover:translate-x-5">
-              →
-            </span>
           </span>
           <span className="mt-4 block max-w-[40ch] text-[17px] text-mute">{next.headline}</span>
         </Link>
@@ -114,13 +108,11 @@ function Meta({ label, value, className = '' }: { label: string; value: string; 
 function Chapter({
   index,
   label,
-  question,
   project,
   chapter,
 }: {
   index: number;
   label: string;
-  question: string;
   project: ProjectType;
   chapter: ChapterKey;
 }) {
@@ -135,7 +127,6 @@ function Chapter({
           <h2 id={id} className="mt-2 font-display text-[30px] sm:text-[36px] leading-[1.02] tracking-[-0.02em]">
             {label}
           </h2>
-          <p className="mt-2 text-[14px] text-mute">{question}</p>
         </div>
       </div>
 
@@ -186,7 +177,7 @@ export function NotFound() {
         This page hasn’t been positioned yet.
       </h1>
       <Link to="/" className="link mt-10 w-fit text-[18px]">
-        Back to the homepage →
+        Back to the homepage
       </Link>
     </section>
   );

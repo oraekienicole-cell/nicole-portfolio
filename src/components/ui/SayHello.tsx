@@ -7,7 +7,7 @@ type Props = {
   /** Pre-fills the email subject, e.g. "Speaking invitation". */
   subject?: string;
   onClick?: (e: MouseEvent<HTMLAnchorElement>) => void;
-  /** Rendered after the label only when the link opens email (e.g. an ↗). */
+  /** Rendered after the label only when the link opens email. */
   emailSuffix?: ReactNode;
   children: ReactNode;
 };

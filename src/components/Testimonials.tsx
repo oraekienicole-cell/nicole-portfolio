@@ -9,7 +9,7 @@ import { DevNote } from './ui/DevNote';
 
 const pad = (n: number) => String(n).padStart(2, '0');
 
-/** "First sentence. The rest." → ["First sentence.", "The rest."] */
+/** Splits "First sentence. The rest." into ["First sentence.", "The rest."] */
 const splitLead = (text: string): [string, string] => {
   const m = text.match(/^(.+?[.!?])\s+(.+)$/s);
   return m ? [m[1], m[2]] : [text, ''];
@@ -39,7 +39,7 @@ export function Testimonials() {
     >
       <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-8">
         <div className="md:col-span-3 md:pt-3">
-          <SectionLabel index="06">Kind words</SectionLabel>
+          <SectionLabel index="06">Recommendations</SectionLabel>
         </div>
         <div className="md:col-span-9">
           <SplitReveal
@@ -47,11 +47,6 @@ export function Testimonials() {
             text="People I’ve worked with, in their words."
             className="font-display text-[length:clamp(32px,4.4vw,64px)] leading-[1.02] tracking-[-0.03em] max-w-[16ch] text-balance"
           />
-          <Reveal delay={150}>
-            <p className="mt-6 max-w-[44ch] text-[17px] sm:text-[19px] leading-[1.5] text-mute text-pretty">
-              I’d rather let the people who were in the room tell you what the work felt like.
-            </p>
-          </Reveal>
           {missingNames > 0 && (
             <DevNote className="mt-8 max-w-xl">
               {missingNames} of these {missingNames === 1 ? 'is' : 'are'} missing the recommender’s name. Add it in{' '}
@@ -122,7 +117,7 @@ function OneAtATime() {
               className="min-h-12 min-w-12 px-3 text-[16px] transition-colors hover:text-accent-ink"
               aria-label="Previous recommendation"
             >
-              ← Prev
+              Previous
             </button>
             <button
               type="button"
@@ -130,7 +125,7 @@ function OneAtATime() {
               className="min-h-12 min-w-12 pl-3 text-[16px] transition-colors hover:text-accent-ink"
               aria-label="Next recommendation"
             >
-              Next →
+              Next
             </button>
           </div>
         </div>
@@ -180,15 +175,15 @@ function Quote({ t, variant }: { t: Testimonial; variant: 'lead' | 'regular' }) 
 }
 
 /**
- * The person first, then how they know Nicole, then (quietly) where the words
- * come from. Role and company appear only once they're real; placeholders never render.
+ * Name (linked to LinkedIn when known), then "Role, Company".
+ * Placeholders never render; the relationship field is kept in the data only.
  */
 function Attribution({ t }: { t: Testimonial }) {
   const hasName = isSet(t.name);
-  const roleLine = [t.role, t.company].filter((v): v is string => isSet(v)).join(' · ');
+  const roleLine = [t.role, t.company].filter((v): v is string => isSet(v)).join(', ');
 
   return (
-    <figcaption className="mt-8 flex flex-col leading-snug transition-[translate] duration-300 ease-out-expo hover:translate-x-1">
+    <figcaption className="mt-8 flex flex-col leading-snug">
       <span aria-hidden="true" className="mb-4 block h-px w-8 bg-ink/30" />
       {hasName &&
         (isSet(t.linkedin) ? (
@@ -199,10 +194,6 @@ function Attribution({ t }: { t: Testimonial }) {
           <span className="text-[17px] font-medium">{t.name}</span>
         ))}
       {roleLine && <span className="mt-1 text-[15px] text-mute">{roleLine}</span>}
-      {t.relationship && (
-        <span className={hasName ? 'mt-1 text-[15px] text-mute' : 'text-[17px] font-medium'}>{t.relationship}</span>
-      )}
-      <span className="mt-2 text-[12px] text-mute/80">Recommendation via LinkedIn</span>
     </figcaption>
   );
 }

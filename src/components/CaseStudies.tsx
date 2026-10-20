@@ -5,6 +5,7 @@ import { SectionLabel } from './ui/SectionLabel';
 import { SplitReveal } from './ui/SplitReveal';
 import { Reveal } from './ui/Reveal';
 import { Rich } from './ui/Rich';
+import { Change } from './ui/Change';
 
 /** First line of each chapter, so the featured case study reads as a preview, not a list of headings. */
 function firstLine(p: Project, key: ChapterKey) {
@@ -15,18 +16,8 @@ function firstLine(p: Project, key: ChapterKey) {
 /** Only the chapters a case study actually has. */
 const chaptersFor = (p: Project) => chapters.filter((c) => firstLine(p, c.key));
 
-/** "~90 → ~500" with the arrow in the accent colour. */
-export function Arrowed({ text }: { text: string }) {
-  const [a, b] = text.split('→');
-  if (b === undefined) return <>{text}</>;
-  return (
-    <>
-      {a.trim()}
-      <span className="text-accent mx-[0.12em]">→</span>
-      {b.trim()}
-    </>
-  );
-}
+/** Kept for existing imports: renders a before/after figure (see ui/Change). */
+export const Arrowed = Change;
 
 export function CaseStudies() {
   const stakeet = getProject('stakeet')!;
@@ -46,8 +37,7 @@ export function CaseStudies() {
           />
           <Reveal delay={150}>
             <p className="mt-8 max-w-[52ch] text-[17px] sm:text-[19px] leading-[1.5] text-mute text-pretty">
-              The case studies work through the same questions: what was happening, what I noticed, what I bet on,
-              what I actually made, what changed, and what I’d do differently. The middle is where the thinking is.
+              Context, problem, decision, what I did and the result.
             </p>
           </Reveal>
         </div>
@@ -79,9 +69,6 @@ export function CaseStudies() {
             className="group mt-10 inline-flex min-h-11 items-center gap-3 rounded-full bg-ink text-white px-6 py-3 text-[15px] transition-colors duration-200 hover:bg-accent hover:text-ink focus-visible:bg-accent focus-visible:text-ink"
           >
             Read the Stakeet case study
-            <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
-              →
-            </span>
           </Link>
         </Reveal>
 
@@ -90,10 +77,7 @@ export function CaseStudies() {
             <Reveal as="li" key={c.key} delay={i * 40} className="border-b border-line py-6 md:py-8 grid grid-cols-7 gap-4">
               <span className="col-span-1 text-[13px] tabular text-mute pt-1.5">{String(i + 1).padStart(2, '0')}</span>
               <div className="col-span-6">
-                <h4 className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-                  <span className="text-[20px] sm:text-[22px] leading-tight">{c.label}</span>
-                  <span className="text-[13px] text-mute">{c.question}</span>
-                </h4>
+                <h4 className="text-[20px] sm:text-[22px] leading-tight">{c.label}</h4>
                 <p className="mt-2.5 max-w-[56ch] text-[15px] leading-[1.6] text-ink/75 text-pretty line-clamp-3">
                   <Rich text={firstLine(stakeet, c.key)} />
                 </p>
@@ -134,9 +118,6 @@ export function CaseStudies() {
             className="link group mt-10 inline-flex min-h-11 w-fit items-center gap-2 text-[16px]"
           >
             Read the Maplerad case study
-            <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
-              →
-            </span>
           </Link>
         </Reveal>
       </article>

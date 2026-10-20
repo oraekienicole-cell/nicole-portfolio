@@ -4,10 +4,10 @@ import { Typewriter } from './ui/Typewriter';
 import { SayHello } from './ui/SayHello';
 
 const actions = [
-  { label: 'See the work', to: '/#work' },
-  { label: 'Read the case studies', to: '/#cases' },
-  { label: 'Read my writing', to: '/#writing' },
-  { label: 'A little about me', to: '/#about' },
+  { label: 'Selected work', to: '/#work' },
+  { label: 'Case studies', to: '/#cases' },
+  { label: 'Writing', to: '/#writing' },
+  { label: 'About', to: '/#about' },
 ];
 
 const tagline = 'Product marketing · Fintech · AI · Technical products';
@@ -33,7 +33,7 @@ export function Hero() {
       className="hero relative z-[1] flex flex-col justify-end pt-28 pb-10 md:justify-center md:pt-0 md:pb-0 px-5 sm:px-8 md:px-10 overflow-hidden"
     >
       <h1 id="hero-title" className="sr-only">
-        Nicole Oraekie, product marketer for fintech, AI and technical products
+        Nicole Oraekie, product marketer for fintech and technical products
       </h1>
 
       {/* Phones/tablets: the copy sits over the figure, so lift it with a soft wash from below */}
@@ -57,7 +57,7 @@ export function Hero() {
         </p>
 
         <Typewriter
-          text="I work out what makes a product worth choosing, turn that into a story people can actually understand, then find the places where that story needs to show up."
+          text="Product marketer for fintech and technical products. I work on positioning, go-to-market, adoption and growth."
           speed={34}
           startDelay={600}
           className="text-black mb-5 sm:mb-6"
@@ -85,7 +85,7 @@ export function Hero() {
           <SayHello
             className={`${pill} gap-2 sm:gap-3 bg-transparent text-black border border-black hover:bg-black hover:text-white`}
           >
-            Say hello <span aria-hidden="true">↗</span>
+            Say hello
           </SayHello>
         </nav>
 
@@ -99,7 +99,7 @@ export function Hero() {
         className="hero-content eyebrow pointer-events-none absolute bottom-6 left-5 right-5 sm:left-8 sm:right-8 md:left-10 md:right-10 hidden md:flex items-end justify-between text-black/70"
       >
         <span>{tagline}</span>
-        <span className="hidden pointer-fine:inline rounded-full bg-white/90 px-3 py-1.5 text-black">← Move your cursor →</span>
+        <span className="hidden pointer-fine:inline rounded-full bg-white/90 px-3 py-1.5 text-black">Move your cursor</span>
       </div>
     </section>
   );

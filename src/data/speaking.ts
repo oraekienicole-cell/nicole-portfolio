@@ -40,7 +40,7 @@ export const speaking: SpeakingItem[] = [
     imageAlt: 'Nicole Oraekie on stage at Search Africon, with a slide titled “Analysis paralysis” on the screen behind her.',
     imagePosition: '50% 45%',
     description:
-      'On getting out of analysis paralysis: decide the objective first (more leads, higher ROI, better engagement), then pay attention only to the metrics that support it.',
+      'On analysis paralysis in marketing data: set the objective first (more leads, higher ROI, better engagement), then track only the metrics that support it.',
   },
   {
     event: 'FCDC Meetup Abuja',
@@ -49,7 +49,7 @@ export const speaking: SpeakingItem[] = [
     image: '/images/speaking/fcdc-abuja.jpg',
     imageAlt: 'Nicole Oraekie speaking on stage at the FCDC Meetup in Abuja, with the event screen behind her.',
     imagePosition: '50% 35%',
-    description: 'On stage at the Freelance Coalition for Developing Countries’ marketing meetup in Abuja.',
+    description: 'Marketing meetup run by the Freelance Coalition for Developing Countries.',
   },
   {
     event: 'Raising Girls Summit 2024',
@@ -59,7 +59,6 @@ export const speaking: SpeakingItem[] = [
     image: '/images/speaking/raising-girls-summit.jpg',
     imageAlt: 'Nicole Oraekie speaking on a panel at the Raising Girls Summit 2024 in Abuja.',
     imagePosition: '50% 30%',
-    description:
-      'A panel at the Raising Women Initiative’s summit, themed “Girls to Women: Invest · Include · Inspire”, where I was billed as a Young Emerging Leader in Tech.',
+    description: 'Panel at the Raising Women Initiative’s summit. Billed as a Young Emerging Leader in Tech.',
   },
 ];

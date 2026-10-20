@@ -15,7 +15,7 @@ import { useScrollFrame } from '../hooks/useScrollFrame';
 export function Home() {
   const [heroActive, setHeroActive] = useState(true);
 
-  // Drive the hero → canvas transition with one CSS variable.
+  // Drive the hero-to-canvas transition with one CSS variable.
   useScrollFrame(() => {
     const p = Math.min(1, Math.max(0, window.scrollY / window.innerHeight));
     const root = document.documentElement;

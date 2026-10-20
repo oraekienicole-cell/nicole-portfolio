@@ -12,22 +12,22 @@ import { Reveal } from './ui/Reveal';
 const journey: { step: string; question: string; proof: string[] }[] = [
   {
     step: 'Idea',
-    question: 'Is there a problem worth building a company around?',
+    question: 'Is the problem big enough to build on?',
     proof: [],
   },
   {
     step: 'Positioning',
-    question: 'Why Iglare, and why would anyone believe us?',
+    question: 'Why Iglare, and why trust us?',
     proof: [],
   },
   {
     step: 'Audience',
-    question: 'Who feels the problem most, and where do they spend their attention?',
+    question: 'Who needs it most, and where are they?',
     proof: [],
   },
   {
     step: 'Distribution',
-    question: 'How do they hear about us at all?',
+    question: 'How do they find us?',
     proof: ['1M+ TikTok impressions'],
   },
   {
@@ -64,15 +64,13 @@ export function Founder() {
         <div className="md:col-span-9">
           <SplitReveal
             id="founder-title"
-            text="Before product marketing was my job title, it was something I had to figure out because the product was mine."
-            accent={['mine.']}
+            text="Before product marketing was my job, I did it for my own company."
+            accent={['company.']}
             className="font-display text-[length:clamp(28px,4.6vw,76px)] leading-[1.06] tracking-[-0.03em] max-w-[20ch] text-balance"
           />
           <Reveal delay={200}>
             <p className="mt-10 max-w-[48ch] text-[18px] sm:text-[20px] leading-[1.5] text-white/70 text-pretty">
-              Iglare Optics became my crash course in the parts of marketing that look much cleaner in a framework than
-              they do when your own money, customers and inventory are involved. I had to work out what people wanted,
-              how to reach them, why they came back and what actually translated attention into revenue.
+              I founded Iglare Optics and handled its marketing end to end: acquisition, retention, partnerships and revenue.
             </p>
           </Reveal>
         </div>
@@ -99,7 +97,7 @@ export function Founder() {
               {hasProof && (
                 <ul className="mt-4 space-y-1.5">
                   {j.proof.map((p) => (
-                    <li key={p} className="text-[15px] leading-snug">
+                    <li key={p} className="font-display text-[17px] leading-snug text-white">
                       {p}
                     </li>
                   ))}
@@ -112,17 +110,13 @@ export function Founder() {
 
       <div className="mt-12 md:mt-24 flex flex-col gap-8 md:flex-row md:items-end md:justify-between border-t border-white/15 pt-10">
         <p className="max-w-[36ch] text-[22px] sm:text-[26px] leading-[1.3] tracking-[-0.01em] text-pretty">
-          Running Iglare is why I don’t separate the story from the numbers. When the brand promise is yours, so is the
-          churn.
+          Running Iglare is why I don’t separate the story from the numbers.
         </p>
         <Link
           to="/work/iglare-optics"
           className="group inline-flex w-fit items-center gap-3 rounded-full border border-white px-6 py-3 text-[15px] transition-colors duration-200 hover:bg-accent hover:border-accent hover:text-ink"
         >
           Read the founder story
-          <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
-            →
-          </span>
         </Link>
       </div>
 

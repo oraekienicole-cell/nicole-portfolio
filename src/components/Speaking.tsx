@@ -45,9 +45,6 @@ export function Speaking() {
       <div className="mt-14 md:mt-24 flex justify-start md:justify-end border-t border-line pt-6 text-[16px]">
         <SayHello subject="Speaking invitation" className="link group inline-flex min-h-11 items-center">
           Invite me to speak{' '}
-          <span aria-hidden="true" className="ml-1 inline-block transition-transform duration-300 group-hover:translate-x-1">
-            →
-          </span>
         </SayHello>
       </div>
     </section>

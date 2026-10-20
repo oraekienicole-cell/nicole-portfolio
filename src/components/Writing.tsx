@@ -8,7 +8,7 @@ import { ExternalLink } from './ui/ExternalLink';
 
 /**
  * Writing: an editorial reading list. Each row is one link (new tab).
- * Desktop: category + publication | title + description | ↗
+ * Desktop: category + publication | title + description | publication
  * Mobile: metadata stacked above a dominant title.
  */
 export function Writing() {
@@ -28,8 +28,7 @@ export function Writing() {
           />
           <Reveal delay={150}>
             <p className="mt-8 max-w-[46ch] text-[17px] sm:text-[19px] leading-[1.5] text-mute text-pretty">
-              Mostly fintech, AI, positioning and the parts of technology that get more interesting once you look past
-              the headline.
+              On fintech, AI, finance, positioning and pricing.
             </p>
           </Reveal>
         </div>
@@ -76,7 +75,7 @@ function ArticleRow({ article: a }: { article: Article }) {
       </span>
 
       {/* Title, description */}
-      <span className="col-span-12 md:col-span-8 lg:col-span-6">
+      <span className="col-span-12 md:col-span-9 lg:col-span-7">
         <span
           className={`block font-display tracking-[-0.02em] text-pretty transition-[translate] duration-500 ease-out-expo md:group-hover:translate-x-2 md:group-focus-visible:translate-x-2 ${
             featured
@@ -85,11 +84,6 @@ function ArticleRow({ article: a }: { article: Article }) {
           }`}
         >
           {a.title}
-          {/* On phones the arrow rides with the title, so it's always visible */}
-          <span aria-hidden="true" className="md:hidden text-ink/45">
-            {' '}
-            ↗
-          </span>
         </span>
         <span
           id={descId}
@@ -103,14 +97,6 @@ function ArticleRow({ article: a }: { article: Article }) {
 
       {/* Publication (desktop) */}
       <span className="hidden lg:block lg:col-span-2 pt-2 text-[15px] text-ink/70">{a.publication}</span>
-
-      {/* Arrow */}
-      <span
-        aria-hidden="true"
-        className="hidden md:flex md:col-span-1 justify-end pt-1 text-[26px] leading-none text-ink/35 transition-[color,translate] duration-300 group-hover:text-accent group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-focus-visible:text-accent"
-      >
-        ↗
-      </span>
 
       <span className="sr-only"> (opens in a new tab)</span>
     </a>

@@ -24,7 +24,7 @@ export function Contact() {
 
   return (
     <section id="contact" aria-labelledby="contact-title" className="border-t border-ink px-5 sm:px-8 md:px-10 pt-20 md:pt-40 pb-16">
-      <SectionLabel index="09">Say Hello</SectionLabel>
+      <SectionLabel index="09">Contact</SectionLabel>
 
       <SplitReveal
         id="contact-title"
@@ -35,8 +35,7 @@ export function Contact() {
       />
       <Reveal delay={250}>
         <p className="mt-8 md:mt-10 max-w-[38ch] text-[20px] sm:text-[26px] leading-[1.3] tracking-[-0.01em] text-mute text-pretty">
-          Especially if the product is complicated, the category is messy, or nobody has quite figured out how to explain
-          it yet.
+          For product marketing roles and projects, especially in fintech and technical products.
         </p>
       </Reveal>
 
@@ -44,15 +43,9 @@ export function Contact() {
         <Reveal delay={350} className="mt-12 md:mt-16 flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-10">
           <a
             href={href}
-            className="group inline-flex w-fit items-center gap-4 rounded-full bg-ink text-white pl-8 pr-3 py-3 text-[20px] sm:text-[24px] transition-colors duration-200 hover:bg-accent hover:text-ink focus-visible:bg-accent focus-visible:text-ink"
+            className="inline-flex min-h-14 w-fit items-center rounded-full bg-ink text-white px-9 py-3 text-[20px] sm:text-[24px] transition-colors duration-200 hover:bg-accent hover:text-ink focus-visible:bg-accent focus-visible:text-ink"
           >
             Say Hello
-            <span
-              aria-hidden="true"
-              className="grid h-11 w-11 place-items-center rounded-full bg-white text-ink transition-transform duration-300 ease-out-expo group-hover:rotate-45"
-            >
-              ↗
-            </span>
           </a>
           <EmailAddress email={socials.email} />
         </Reveal>

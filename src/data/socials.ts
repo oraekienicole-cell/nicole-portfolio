@@ -41,6 +41,6 @@ export const mailto = (subject?: string) =>
 /** Where a "Say Hello" goes: straight to email when there is one, otherwise the contact section. */
 export const sayHelloHref = (subject?: string) => mailto(subject) ?? '/#contact';
 
-/** "https://www.linkedin.com/in/nicole/" → "linkedin.com/in/nicole" */
+/** Turns "https://www.linkedin.com/in/nicole/" into "linkedin.com/in/nicole" */
 export const displayUrl = (url: string) =>
   url.replace(/^https?:\/\//, '').replace(/^www\./, '').replace(/\/$/, '');

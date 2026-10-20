@@ -5,9 +5,9 @@ import { cv, socials } from '../data/socials';
 import { SayHello } from './ui/SayHello';
 
 const links = [
-  { label: 'The Work', to: '/#work' },
-  { label: 'The Person', to: '/#about' },
-  { label: 'Things I Wrote Down', to: '/#writing' },
+  { label: 'Work', to: '/#work' },
+  { label: 'About', to: '/#about' },
+  { label: 'Writing', to: '/#writing' },
 ];
 
 export function Navigation() {
@@ -76,14 +76,9 @@ export function Navigation() {
           aria-label="Primary"
           className="flex items-center justify-between px-5 sm:px-8 py-4 sm:py-5"
         >
-          <Link to="/" className="group flex items-center gap-3" aria-label="Nicole Oraekie, home">
-            <span className="wordmark text-[21px] sm:text-[26px] leading-none">Nicole Oraekie</span>
-            <span
-              aria-hidden="true"
-              className="text-[25px] sm:text-[30px] leading-none select-none transition-[rotate,color] duration-500 ease-out-expo group-hover:rotate-90 group-hover:text-accent"
-              style={{ letterSpacing: '-0.02em' }}
-            >
-              ✳︎
+          <Link to="/" className="flex min-h-11 items-center" aria-label="Nicole Oraekie, home">
+            <span className="wordmark text-[21px] sm:text-[26px] leading-none transition-opacity hover:opacity-60">
+              Nicole Oraekie
             </span>
           </Link>
 
@@ -114,7 +109,6 @@ export function Navigation() {
 
           <SayHello
             className="hidden lg:inline text-[16px] xl:text-[19px] 2xl:text-[21px] leading-none whitespace-nowrap underline underline-offset-2 decoration-1 hover:opacity-60 transition-opacity"
-            emailSuffix={<span aria-hidden="true"> ↗</span>}
           >
             Say Hello
           </SayHello>
@@ -181,7 +175,6 @@ export function Navigation() {
             <SayHello
               onClick={() => setOpen(false)}
               className="inline-flex min-h-12 w-fit items-center font-display text-[length:clamp(26px,7.4vw,34px)] leading-none text-black underline underline-offset-4 decoration-1 decoration-accent"
-              emailSuffix={<span aria-hidden="true">&nbsp;↗</span>}
             >
               Say Hello
             </SayHello>

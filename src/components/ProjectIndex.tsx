@@ -17,18 +17,18 @@ export function ProjectIndex() {
     <section id="work" aria-labelledby="work-title" className="px-5 sm:px-8 md:px-10 pt-20 md:pt-44 pb-16 md:pb-40">
       <div className="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-8 mb-12 md:mb-28">
         <div className="md:col-span-3 md:pt-3">
-          <SectionLabel index="01">The Work</SectionLabel>
+          <SectionLabel index="01">Selected work</SectionLabel>
         </div>
         <div className="md:col-span-9">
           <SplitReveal
             id="work-title"
-            text="A few things I’ve moved forward."
+            text="Problems I’ve worked on, and what changed."
             stagger={28}
             className="font-display text-[length:clamp(36px,5.6vw,88px)] leading-[1] tracking-[-0.03em] max-w-[14ch] text-balance"
           />
           <Reveal delay={200}>
             <p className="mt-8 max-w-[44ch] text-[18px] sm:text-[21px] leading-[1.45] text-mute text-pretty">
-              Products, positioning, adoption and the occasional number worth putting in large type.
+              Fintech infrastructure, early-stage growth, consumer content and a company I founded.
             </p>
           </Reveal>
         </div>
@@ -67,14 +67,6 @@ function ProjectRow({ project: p, index, onActivate }: { project: Project; index
         >
           {p.title}
         </span>
-        {href && (
-          <span
-            aria-hidden="true"
-            className="hidden md:inline text-[length:clamp(22px,2.6vw,40px)] text-accent opacity-0 -translate-x-2 transition-[opacity,translate] duration-500 ease-out-expo group-hover:opacity-100 group-hover:translate-x-2 group-focus-visible:opacity-100"
-          >
-            →
-          </span>
-        )}
       </span>
 
       {/* The problem, the kind of work, and the verified outcome: readable without hovering */}
